@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SMS Squema</title>
+  <meta name="description" content="Interactive reference of the SMS database: tables, columns, field codes, indexes and relationships.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%232563eb'/%3E%3Cpath d='M8 10h16M8 16h16M8 22h10' stroke='white' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="styles.css">
+  <script>
+    // Apply the saved theme before the first paint; light unless the visitor chose dark.
+    try { if (localStorage.getItem('sms-squema.theme') === 'dark') document.documentElement.dataset.theme = 'dark'; } catch {}
+  </script>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <header class="topbar">
+    <a class="brand" href="#/">
+      <svg viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="7"/><path d="M8 10h16M8 16h16M8 22h10"/></svg>
+      <span>SMS Squema</span>
+    </a>
+    <nav class="views" aria-label="Views">
+      <a href="#/" data-nav="explore">Explore</a>
+      <a href="#/list" data-nav="list">Reference</a>
+    </nav>
+    <p class="meta" id="meta">Loading…</p>
+    <button type="button" class="theme-toggle" id="theme-toggle" aria-pressed="false" title="Switch to dark mode">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A8 8 0 1 1 9.5 4a6.5 6.5 0 0 0 10.5 10.5Z"/></svg>
+      <span class="visually-hidden">Dark mode</span>
+    </button>
+  </header>
+
+  <div class="layout">
+    <aside class="sidebar" aria-label="Tables">
+      <label class="search">
+        <span class="visually-hidden">Search tables, field codes and descriptions</span>
+        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+        <input id="search" type="search" placeholder="Search: PRICE, F140, package…" autocomplete="off" spellcheck="false">
+      </label>
+      <div class="kinds" id="kinds" role="group" aria-label="Table kinds"></div>
+      <p class="count" id="count"></p>
+      <nav class="table-list" id="table-list"></nav>
+    </aside>
+
+    <main id="main" class="content" tabindex="-1">
+      <p class="loading">Loading the schema…</p>
+    </main>
+  </div>
+
+  <script src="app.js" type="module"></script>
+</body>
+</html>
